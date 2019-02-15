@@ -80,6 +80,7 @@ RUN sudo java -version
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages(c('curl', 'httr'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('remotes', repos='https://cran.r-project.org/')" \
 && R -e "install.packages(c('dplyr'), repos='http://cran.rstudio.com/')" \
