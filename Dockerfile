@@ -97,7 +97,8 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages('extrafont', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('kuzmenkov111/shinycustomloader')\"" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/wired')\"" \
-&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/kandinsky')\""
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/kandinsky')\"" \
+&& R -e "download.file('http://simonsoftware.se/other/xkcd.ttf', dest='xkcd.ttf', mode='wb'); system('mkdir ~/.fonts'); system('cp xkcd.ttf ~/.fonts'); extrafont::font_import(pattern = '[X/x]kcd', prompt=FALSE)"
 
 
 EXPOSE 3838
