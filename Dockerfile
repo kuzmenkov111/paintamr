@@ -80,12 +80,23 @@ RUN sudo java -version
 # basic shiny functionality
 RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('shiny'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('shinyjs'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('shinythemes'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages('devtools', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('remotes', repos='https://cran.r-project.org/')" \
 && R -e "install.packages(c('dplyr'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('data.table'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('pool'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('bcrypt'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('binom'), repos='http://cran.rstudio.com/')" \
 && R -e "install.packages(c('RPostgres'), repos='http://cran.rstudio.com/')" \
-&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')"
+&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages('grDevices', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('stringi', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('rjson', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('uuid', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages(c('DBI'), repos='http://cran.rstudio.com/')" \
+&& R -e "install.packages('configr', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('fst', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('extrafont', repos='https://cran.r-project.org/')" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('kuzmenkov111/shinycustomloader')\"" \
+
+
+ 
+
