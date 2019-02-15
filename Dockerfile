@@ -96,7 +96,15 @@ RUN sudo R -e "install.packages('rmarkdown', repos='http://cran.rstudio.com/')" 
 && R -e "install.packages('fst', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('extrafont', repos='https://cran.r-project.org/')" \
 && sudo su - -c "R -e \"options(unzip = 'internal'); remotes::install_github('kuzmenkov111/shinycustomloader')\"" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/wired')\"" \
+&& sudo su - -c "R -e \"options(unzip = 'internal'); devtools::install_github('kuzmenkov111/kandinsky')\""
 
 
- 
+EXPOSE 3838
+RUN mkdir /home/docker/app
 
+VOLUME /home/docker/app
+
+EXPOSE 3838
+
+CMD ["R", "-e shiny::runApp('/home/docker/app',port=3838,host='0.0.0.0')"]
